@@ -1,5 +1,13 @@
+// Variables
 var now = moment()
 var currentDayEl = $(".time");
+// Variable for Calm Quote API
+const myURL = 'https://favqs.com/api/qotd?tags=love';
+const calmQuoteEl = document.querySelector("#quoteDiv");
+const calmAuthorEl = document.querySelector("#authorDiv");
+const calmButtonEl = document.querySelector("#calm-button");
+
+
 
 function displayDate() {
     var date = now.format("dddd, MMMM Do YYYY, h:mm a");
@@ -9,32 +17,28 @@ function displayDate() {
 displayDate();
 
 
-// Calm API
-const myURL = 'https://favqs.com/api/qotd?tags=love';
-const calmQuoteEl = document.querySelector("#quoteDiv");
-const calmAuthorEl = document.querySelector("#authorDiv");
-const calmButtonEl = document.querySelector("#calm-button");
-
+// Calm Quote API Function
 function getCalmApi() {
   fetch(myURL)
     .then(function (response) {
-      console.log(response.status);
       //  Conditional for the the response.status.
       if (response.status !== 200) {
         // Place the response.status on the page.
-        // responseTextEL.textContent = response.status; 
+        // Error 404 Page
       }
       return response.json();
     })
     .then(function (data) {
       // Make sure to look at the response in the console and read how 404 response is structured.
-      console.log(data);
       const bodyQuote = data.quote.body;
       const author = data.quote.author;
-      console.log(data.quote.body);
-      console.log(data.quote.author);
-      calmAuthorEl.textContent = calmQuoteEl;
-      calmAuthorEl.textContent = calmAuthorEl;
+      
+      calmQuoteEl.textContent = bodyQuote ;
+      calmAuthorEl.textContent = "-" + author ;
+
+      // Add More codes for localStorage
+
+
     });
 }
 
