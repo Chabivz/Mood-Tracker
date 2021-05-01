@@ -12,7 +12,7 @@
     <!-- CSS Style Link -->
     <link rel="stylesheet" href="Assets/CSS/style.css">
     <!-- Debugger -->
-    <!-- <link rel="stylesheet" href="Assets/CSS/debug.css"> -->
+    <link rel="stylesheet" href="Assets/CSS/debug.css">
     <title>Mood Tracker</title>
 </head>
 <body>
@@ -41,7 +41,7 @@
                     <button class="angry button is-medium is-fullwidth">Angry</button>
                     <button class="happy button is-medium is-fullwidth">Happy</button>
                     <button class="sad button is-medium is-fullwidth">Sad</button>
-                    <button class="calm button is-medium is-fullwidth">Calm</button>
+                    <button id="calm-button" class="calm button is-medium is-fullwidth">Calm</button>
                     </div>  
                 </div>
                 <div id="suggestions" class="image is-align-self-center p-6">
@@ -50,6 +50,11 @@
                         <figure class="image">
                             <img src="Assets/images/suggestions.jpeg">
                         </figure>
+                        <!-- Added Calm Quotes API Display -->
+                        <div id="CalmQuotesDiv">
+                            <div id="quoteDiv"></div>
+                            <div id="authorDiv"></div>
+                        </div>
                     </div>
                     </div>
                 </div>
